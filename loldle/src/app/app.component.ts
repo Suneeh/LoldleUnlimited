@@ -26,7 +26,7 @@ import { Champion, ChampionData } from './champion-data';
   ],
 })
 export class AppComponent {
-  guessedChampList = [];
+  guessedChampList: Champion[] = [];
   championInput = new FormControl('');
   filteredChamps: Observable<Champion[]>;
   allChamps = ChampionData;
@@ -35,11 +35,27 @@ export class AppComponent {
       startWith(''),
       map((input) =>
         input
-          ? this.allChamps.filter((champ) =>
-              champ.name.toLowerCase().includes(input)
-            )
+          ? this.allChamps
+              .filter((champ) => champ.name.toLowerCase().includes(input))
+              .filter(
+                (champ) =>
+                  !this.guessedChampList.some((guess) => {
+                    return guess.name === champ.name;
+                  })
+              )
           : this.allChamps.slice()
-      )
+      ),
+      map((champions) => champions.filter((champ) => !this.guessedChampList.some((guess) => guess.name === champ.name)))
     );
+  }
+
+  guess(value: string) {
+    console.log(value);
+    let champtionGuessed = this.allChamps.find((champ) => champ.name === value);
+    if (champtionGuessed) {
+      this.guessedChampList.push(champtionGuessed);
+    }
+    this.championInput.reset('');
+    console.log(this.guessedChampList);
   }
 }

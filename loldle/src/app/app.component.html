@@ -2,31 +2,15 @@
   <h1>Loldle Unlimited</h1>
   <mat-card>
     <mat-card-header>
-      <mat-card-title
-        >Guess the champion, start out by typing your favourite champions
-        name.</mat-card-title
-      >
+      <mat-card-title>Guess the champion, start out by typing your favourite champions name.</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <mat-form-field class="example-full-width">
         <mat-label>State</mat-label>
-        <input
-          class="input"
-          matInput
-          [matAutocomplete]="auto"
-          [formControl]="championInput"
-        />
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option
-            *ngFor="let champ of filteredChamps | async"
-            [value]="champ.name"
-          >
-            <img
-              alt=""
-              class="example-option-img"
-              [src]="champ.portrait"
-              height="25"
-            />
+        <input matInput class="input" [matAutocomplete]="auto" [formControl]="championInput" />
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="guess($event.option.value)">
+          <mat-option *ngFor="let champ of filteredChamps | async" [value]="champ.name">
+            <img alt="" class="example-option-img" [src]="champ.portrait" height="25" />
             <span>{{ champ.name }}</span>
             <small> {{ champ.title }}</small>
           </mat-option>

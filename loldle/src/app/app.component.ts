@@ -31,11 +31,9 @@ export class AppComponent {
   filteredChamps: Observable<Champion[]>;
   allChamps = ChampionData;
   gameWon = false;
-  // TODO - fetch correct champ and show the guessed champs with the hints correct / wrong stuff
   correctCampion: Champion | null;
   constructor() {
     this.correctCampion = this.allChamps[Math.floor(Math.random() * this.allChamps.length)];
-    console.log(this.correctCampion.name);
     this.filteredChamps = this.championInput.valueChanges.pipe(
       startWith(''),
       map((input) =>
@@ -65,6 +63,7 @@ export class AppComponent {
       }
       this.championInput.reset('');
     }
+    // TODO - Make ENTER key work as a guess
   }
 
   getAmountEqualArrayElements(guessedStats: string | string[], correctStats: string | string[]): number {

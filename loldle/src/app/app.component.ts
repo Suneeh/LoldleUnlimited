@@ -30,7 +30,10 @@ export class AppComponent {
   championInput = new FormControl('');
   filteredChamps: Observable<Champion[]>;
   allChamps = ChampionData;
+  // TODO - fetch correct champ and show the guessed champs with the hints correct / wrong stuff
+  correctCampion: Champion | null;
   constructor() {
+    this.correctCampion = this.allChamps[Math.floor(Math.random() * this.allChamps.length)];
     this.filteredChamps = this.championInput.valueChanges.pipe(
       startWith(''),
       map((input) =>
@@ -50,12 +53,10 @@ export class AppComponent {
   }
 
   guess(value: string) {
-    console.log(value);
     let champtionGuessed = this.allChamps.find((champ) => champ.name === value);
     if (champtionGuessed) {
       this.guessedChampList.push(champtionGuessed);
     }
     this.championInput.reset('');
-    console.log(this.guessedChampList);
   }
 }

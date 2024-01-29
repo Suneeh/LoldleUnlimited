@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Observable, map, startWith } from 'rxjs';
 import { Champion, ChampionData } from './champion-data';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { Champion, ChampionData } from './champion-data';
   styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
+    RouterOutlet,
     FormsModule,
     MatFormFieldModule,
     MatInputModule,

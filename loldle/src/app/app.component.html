@@ -47,7 +47,11 @@
             getAmountEqualArrayElements(champ.roles, correctCampion!.roles) > 0 &&
             getAmountEqualArrayElements(champ.roles, correctCampion!.roles) !== correctCampion?.roles?.length
           "
-          [class.correct]="getAmountEqualArrayElements(champ.roles, correctCampion!.roles) === correctCampion?.roles?.length">
+          [class.correct]="
+            getAmountEqualArrayElements(champ.roles, correctCampion!.roles) === correctCampion?.roles?.length &&
+            champ.roles.length === correctCampion!.roles!.length
+          "
+          [class.wrong]="getAmountEqualArrayElements(champ.roles, correctCampion!.roles) === 0">
           <span>{{ champ.roles.join(' ') }}</span>
         </div>
 
@@ -57,7 +61,11 @@
             getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) > 0 &&
             getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) !== correctCampion?.lanes?.length
           "
-          [class.correct]="getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) === correctCampion?.lanes?.length">
+          [class.correct]="
+            getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) === correctCampion!.lanes!.length &&
+            champ.lanes.length === correctCampion!.lanes!.length
+          "
+          [class.wrong]="getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) === 0">
           <span>{{ champ.lanes.join(' ') }}</span>
         </div>
         <div class="stat-item" [class.correct]="champ.region === correctCampion?.region">

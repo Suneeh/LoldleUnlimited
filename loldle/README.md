@@ -11,3 +11,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 - Make ENTER Key work for guessing Champions
 - Make the app visually pleasing
 - Write Unit Tests for all methods
+- Update the champion-data.ts
+- Write importer for the champion-data.ts

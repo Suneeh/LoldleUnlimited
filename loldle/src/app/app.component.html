@@ -35,10 +35,16 @@
           <div class="arrow"></div>
           <span>{{ getYearFromString(champ.releaseDate) }}</span>
         </div>
-        <div class="stat-item" [class.correct]="champ.rangeType === correctCampion?.rangeType">
+        <div
+          class="stat-item"
+          [class.correct]="champ.rangeType === correctCampion?.rangeType"
+          [class.wrong]="champ.rangeType !== correctCampion?.rangeType">
           <span>{{ champ.rangeType }}</span>
         </div>
-        <div class="stat-item" [class.correct]="champ.resource === correctCampion?.resource">
+        <div
+          class="stat-item"
+          [class.correct]="champ.resource === correctCampion?.resource"
+          [class.wrong]="champ.resource !== correctCampion?.resource">
           <span>{{ champ.resource }}</span>
         </div>
         <div
@@ -68,10 +74,16 @@
           [class.wrong]="getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) === 0">
           <span>{{ champ.lanes.join(' ') }}</span>
         </div>
-        <div class="stat-item" [class.correct]="champ.region === correctCampion?.region">
+        <div
+          class="stat-item"
+          [class.correct]="champ.region === correctCampion?.region"
+          [class.wrong]="champ.region !== correctCampion?.region">
           <span>{{ champ.region }}</span>
         </div>
-        <div class="stat-item" [class.correct]="champ.species === correctCampion?.species">
+        <div
+          class="stat-item"
+          [class.correct]="champ.species === correctCampion?.species"
+          [class.wrong]="champ.species !== correctCampion?.species">
           <span>{{ champ.species }}</span>
         </div>
       </div>

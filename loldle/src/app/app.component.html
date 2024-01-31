@@ -27,63 +27,27 @@
         <div class="stat-item">
           <img [src]="champ.portrait" height="75" />
         </div>
-        <div
-          class="stat-item"
-          [class.correct]="getYearFromString(champ.releaseDate) === getYearFromString(correctCampion!.releaseDate)"
-          [class.higher]="getYearFromString(champ.releaseDate) < getYearFromString(correctCampion!.releaseDate)"
-          [class.lower]="getYearFromString(champ.releaseDate) > getYearFromString(correctCampion!.releaseDate)">
+        <div class="stat-item" [ngClass]="getClassDependingOnAmountEqualArrayElements(champ.releaseDate, correctCampion!.releaseDate, 2)">
           <div class="arrow"></div>
           <span>{{ getYearFromString(champ.releaseDate) }}</span>
         </div>
-        <div
-          class="stat-item"
-          [class.correct]="champ.rangeType === correctCampion?.rangeType"
-          [class.wrong]="champ.rangeType !== correctCampion?.rangeType">
+        <div class="stat-item" [ngClass]="getClassDependingOnAmountEqualArrayElements(champ.rangeType, correctCampion!.rangeType, 1)">
           <span>{{ champ.rangeType }}</span>
         </div>
-        <div
-          class="stat-item"
-          [class.correct]="champ.resource === correctCampion?.resource"
-          [class.wrong]="champ.resource !== correctCampion?.resource">
+        <div class="stat-item" [ngClass]="getClassDependingOnAmountEqualArrayElements(champ.resource, correctCampion!.resource, 1)">
           <span>{{ champ.resource }}</span>
         </div>
-        <div
-          class="stat-item"
-          [class.partial]="
-            getAmountEqualArrayElements(champ.roles, correctCampion!.roles) > 0 &&
-            getAmountEqualArrayElements(champ.roles, correctCampion!.roles) !== correctCampion?.roles?.length
-          "
-          [class.correct]="
-            getAmountEqualArrayElements(champ.roles, correctCampion!.roles) === correctCampion?.roles?.length &&
-            champ.roles.length === correctCampion!.roles!.length
-          "
-          [class.wrong]="getAmountEqualArrayElements(champ.roles, correctCampion!.roles) === 0">
+        <div class="stat-item" [ngClass]="getClassDependingOnAmountEqualArrayElements(champ.roles, correctCampion!.roles, 0)">
           <span>{{ champ.roles.join(' ') }}</span>
         </div>
 
-        <div
-          class="stat-item"
-          [class.partial]="
-            getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) > 0 &&
-            getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) !== correctCampion?.lanes?.length
-          "
-          [class.correct]="
-            getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) === correctCampion!.lanes!.length &&
-            champ.lanes.length === correctCampion!.lanes!.length
-          "
-          [class.wrong]="getAmountEqualArrayElements(champ.lanes, correctCampion!.lanes) === 0">
+        <div class="stat-item" [ngClass]="getClassDependingOnAmountEqualArrayElements(champ.lanes, correctCampion!.lanes, 0)">
           <span>{{ champ.lanes.join(' ') }}</span>
         </div>
-        <div
-          class="stat-item"
-          [class.correct]="champ.region === correctCampion?.region"
-          [class.wrong]="champ.region !== correctCampion?.region">
+        <div class="stat-item" [ngClass]="getClassDependingOnAmountEqualArrayElements(champ.region, correctCampion!.region, 1)">
           <span>{{ champ.region }}</span>
         </div>
-        <div
-          class="stat-item"
-          [class.correct]="champ.species === correctCampion?.species"
-          [class.wrong]="champ.species !== correctCampion?.species">
+        <div class="stat-item" [ngClass]="getClassDependingOnAmountEqualArrayElements(champ.species, correctCampion!.species, 1)">
           <span>{{ champ.species }}</span>
         </div>
       </div>

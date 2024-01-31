@@ -69,14 +69,49 @@ export class AppComponent {
     // TODO - Make ENTER key work as a guess
   }
 
-  getAmountEqualArrayElements(guessedStats: string | string[], correctStats: string | string[]): number {
-    if (Array.isArray(guessedStats) && Array.isArray(correctStats)) {
-      return guessedStats.filter((stat) => correctStats.includes(stat)).length;
-    } else {
-      return guessedStats === correctStats ? 1 : 0;
+  getClassDependingOnAmountEqualArrayElements(
+    guessedStats: string | string[],
+    correctStats: string | string[],
+    statType: statTypeEnum
+  ): string {
+    switch (statType) {
+      case statTypeEnum.array:
+        let correctStatAmount = 0;
+        if (Array.isArray(guessedStats) && Array.isArray(correctStats)) {
+          correctStatAmount = guessedStats.filter((stat) => correctStats.includes(stat)).length;
+          if (correctStatAmount === correctStats.length && correctStatAmount === guessedStats.length) {
+            return 'correct';
+          }
+          if (correctStatAmount > 0) {
+            return 'partial';
+          }
+          return 'wrong';
+        }
+        break;
+      case statTypeEnum.string:
+        if (guessedStats === correctStats) {
+          return 'correct';
+        }
+        return 'wrong';
+      case statTypeEnum.number:
+        if (typeof guessedStats === 'string' && typeof correctStats === 'string') {
+          let guessedNumber = this.getYearFromString(guessedStats as string);
+          let correctNumber = this.getYearFromString(correctStats as string);
+          if (guessedNumber === correctNumber) return 'correct';
+          if (guessedNumber > correctNumber) return 'higher';
+          if (guessedNumber < correctNumber) return 'lower';
+        }
     }
+    return 'wrong';
   }
+
   getYearFromString(date: string): number {
     return new Date(date).getFullYear();
   }
+}
+
+enum statTypeEnum {
+  array,
+  string,
+  number,
 }

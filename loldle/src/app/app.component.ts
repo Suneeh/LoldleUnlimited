@@ -8,6 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { Observable, map, startWith } from 'rxjs';
 import { Champion, ChampionData } from './champion-data';
 import { RouterOutlet } from '@angular/router';
+import { statTypeEnum } from './statTypeEnum';
 
 @Component({
   selector: 'app-root',
@@ -56,17 +57,16 @@ export class AppComponent {
   }
 
   guess(value: string) {
-    let champtionGuessed = this.allChamps.find((champ) => champ.name === value);
-    if (champtionGuessed) {
-      this.guessedChampList.push(champtionGuessed);
+    let championGuessed = this.allChamps.find((champ) => champ.name === value);
+    if (championGuessed) {
+      this.guessedChampList.push(championGuessed);
 
-      if (champtionGuessed?.name == this.correctCampion?.name) {
+      if (championGuessed?.name == this.correctCampion?.name) {
         this.gameWon = true;
         this.allChamps = [];
       }
       this.championInput.reset('');
     }
-    // TODO - Make ENTER key work as a guess
   }
 
   getClassDependingOnAmountEqualArrayElements(
@@ -108,10 +108,4 @@ export class AppComponent {
   getYearFromString(date: string): number {
     return new Date(date).getFullYear();
   }
-}
-
-enum statTypeEnum {
-  array,
-  string,
-  number,
 }

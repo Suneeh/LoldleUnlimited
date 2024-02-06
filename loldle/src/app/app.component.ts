@@ -99,8 +99,8 @@ export class AppComponent {
           const guessedNumber = this.getYearFromString(guessedStats as string);
           const correctNumber = this.getYearFromString(correctStats as string);
           if (guessedNumber === correctNumber) return 'correct';
-          if (guessedNumber > correctNumber) return 'higher';
-          if (guessedNumber < correctNumber) return 'lower';
+          if (guessedNumber > correctNumber) return 'lower';
+          if (guessedNumber < correctNumber) return 'higher';
         }
     }
     return 'wrong';

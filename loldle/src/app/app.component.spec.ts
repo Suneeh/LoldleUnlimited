@@ -44,8 +44,8 @@ describe('App Component', () => {
 
   describe('getClassDependingOnAmountEqualArrayElements', () => {
     const testArrNumbers = [
-      { input: '2010', correct: '2011', output: 'lower' },
-      { input: '2010', correct: '2009', output: 'higher' },
+      { input: '2010', correct: '2011', output: 'higher' },
+      { input: '2010', correct: '2009', output: 'lower' },
       { input: '2010', correct: '2010', output: 'correct' },
       { input: [], correct: '2010', output: 'wrong' },
       { input: '2010', correct: [], output: 'wrong' },

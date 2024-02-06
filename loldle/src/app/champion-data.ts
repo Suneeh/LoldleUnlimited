@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export interface Champion {
   name: string;
   title: string;
@@ -11,13 +12,13 @@ export interface Champion {
   rangeType: string;
   // UNUSED
   splash: string;
-  abilities: {};
+  abilities: unknown;
   releasePatch: string;
   attackRange: number;
-  ratings: {};
+  ratings: unknown;
   spotlightVideoID: string;
-  tagArrays: any[];
-  ids: {};
+  tagArrays: unknown;
+  ids: unknown;
 }
 
 export const ChampionData = [

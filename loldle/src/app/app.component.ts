@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgFor, AsyncPipe, NgIf, NgClass } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -11,6 +11,7 @@ import { RouterOutlet } from '@angular/router';
 import { statTypeEnum } from './statTypeEnum';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
@@ -57,7 +58,7 @@ export class AppComponent {
   }
 
   guess(value: string) {
-    let championGuessed = this.allChamps.find((champ) => champ.name === value);
+    const championGuessed = this.allChamps.find((champ) => champ.name === value);
     if (championGuessed) {
       this.guessedChampList.push(championGuessed);
 
@@ -76,8 +77,8 @@ export class AppComponent {
   ): string {
     switch (statType) {
       case statTypeEnum.array:
-        let correctStatAmount = 0;
         if (Array.isArray(guessedStats) && Array.isArray(correctStats)) {
+          let correctStatAmount = 0;
           correctStatAmount = guessedStats.filter((stat) => correctStats.includes(stat)).length;
           if (correctStatAmount === correctStats.length && correctStatAmount === guessedStats.length) {
             return 'correct';
@@ -95,8 +96,8 @@ export class AppComponent {
         return 'wrong';
       case statTypeEnum.number:
         if (typeof guessedStats === 'string' && typeof correctStats === 'string') {
-          let guessedNumber = this.getYearFromString(guessedStats as string);
-          let correctNumber = this.getYearFromString(correctStats as string);
+          const guessedNumber = this.getYearFromString(guessedStats as string);
+          const correctNumber = this.getYearFromString(correctStats as string);
           if (guessedNumber === correctNumber) return 'correct';
           if (guessedNumber > correctNumber) return 'higher';
           if (guessedNumber < correctNumber) return 'lower';

@@ -30,7 +30,7 @@ describe('App Component', () => {
 
     it(`should add champ to guessed list`, () => {
       component.correctCampion = null;
-      let count = component.guessedChampList.length;
+      const count = component.guessedChampList.length;
       component.guess('Alistar');
       expect(component.guessedChampList.length).toBe(count + 1);
     });

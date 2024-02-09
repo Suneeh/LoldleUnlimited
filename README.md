@@ -24,6 +24,7 @@ Run `ng test` to run the karma test runner in chrome and continue from there.
 
 # TODOs
 
+- Load images faster
 - Make the app visually pleasing
 - Update the champion-data.ts
 - Write importer for the champion-data.ts

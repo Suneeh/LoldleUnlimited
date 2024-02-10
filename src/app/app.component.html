@@ -1,3 +1,4 @@
+<!-- eslint-disable @angular-eslint/template/no-call-expression -->
 <div class="content">
   <h1>Loldle Unlimited</h1>
   <mat-card>
@@ -9,13 +10,15 @@
         <mat-label>State</mat-label>
         <input matInput class="input" [matAutocomplete]="auto" [formControl]="championInput" />
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="guess($event.option.value)">
-          <mat-option *ngFor="let champ of filteredChamps | async" [value]="champ.name">
+          @for (champ of (filteredChamps | async); track champ.name){
+          <mat-option [value]="champ.name">
             <div class="option">
-              <img [src]="champ.portrait" height="25" loading="lazy" />
+              <img [ngSrc]="champ.portrait" height="25" width="25" loading="eager" />
               <span>{{ champ.name }}</span>
               <small> {{ champ.title }}</small>
             </div>
           </mat-option>
+          }
         </mat-autocomplete>
       </mat-form-field>
     </mat-card-content>
@@ -23,7 +26,8 @@
   <mat-card *ngIf="guessedChampList.length" class="guesses-card" [class.correct]="gameWon">
     <mat-card-header><h2>Guesses:</h2></mat-card-header>
     <mat-card-content>
-      <div *ngFor="let champ of guessedChampList" class="champion-stats">
+      @for (champ of guessedChampList; track champ.name){
+      <div class="champion-stats">
         <div class="stat-item">
           <img [src]="champ.portrait" height="75" />
         </div>
@@ -51,6 +55,7 @@
           <span>{{ champ.species }}</span>
         </div>
       </div>
+      }
     </mat-card-content>
   </mat-card>
 </div>

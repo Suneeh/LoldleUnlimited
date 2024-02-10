@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgFor, AsyncPipe, NgIf, NgClass } from '@angular/common';
+import { NgFor, AsyncPipe, NgIf, NgClass, NgOptimizedImage } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
@@ -28,6 +28,7 @@ import { statTypeEnum } from './statTypeEnum';
     NgClass,
     NgIf,
     AsyncPipe,
+    NgOptimizedImage,
   ],
 })
 export class AppComponent {

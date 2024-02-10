@@ -2,6 +2,8 @@
 
 This repository is basically a clone of the super popular [loldle](https://loldle.net) classic mode written in Angular. The only 'twist' is that it refreshes the champion you have to guess every time you reload the page.
 
+Check it out! It is deployed [here](https://loldle.suneeh.de/).
+
 # Contributing
 
 ## Clone the repo
@@ -22,11 +24,16 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng test` to run the karma test runner in chrome and continue from there.
 
+## Deployment
+
+Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deployment.sh`. Also be sure to adjust this to your needs as shown in the [example](https://github.com/Suneeh/LoldleUnlimited/blob/main/deployment.example.sh).
+
 # TODOs
 
-- Load images faster
 - Make the app visually pleasing
-- Update the champion-data.ts
-- Write importer for the champion-data.ts
+- champion-data.ts is out to date.
+  - write importer
+  - load dynamically
 - ~~Make ENTER Key work for guessing Champions~~
 - ~~Write Unit Tests for all methods~~
+- ~~Load images faster~~

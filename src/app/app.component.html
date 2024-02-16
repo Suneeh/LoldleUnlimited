@@ -13,7 +13,11 @@
           @for (champ of (filteredChamps | async); track champ.name){
           <mat-option [value]="champ.name">
             <div class="option">
-              <img [ngSrc]="champ.portrait" height="25" width="25" loading="eager" />
+              @defer (prefetch on idle) {
+              <img [src]="champ.portrait" height="25" width="25" />
+              } @placeholder(minimum 1s) {
+              <div class="placeholder"></div>
+              }
               <span>{{ champ.name }}</span>
               <small> {{ champ.title }}</small>
             </div>

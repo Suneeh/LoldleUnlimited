@@ -30,6 +30,7 @@ Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deploymen
 
 # TODOs
 
+- Check [this](https://angular.dev/guide/defer) to load images on idle or on focus of the input, rather than just loading them eagerly.
 - Make the app visually pleasing
 - champion-data.ts is out to date.
   - write importer

@@ -34,6 +34,7 @@ Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deploymen
 - champion-data.ts is out to date.
   - write importer
   - load dynamically
+  - check if bundle size gets small enough by doing this
 - ~~Make ENTER Key work for guessing Champions~~
 - ~~Write Unit Tests for all methods~~
 - ~~Load images faster~~

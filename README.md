@@ -35,6 +35,8 @@ Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deploymen
   - write importer
   - load dynamically
   - check if bundle size gets small enough by doing this
+  - maybe only load the portrait and the name/title first, and load the other data on select?
+- Build a Champion Guess Component with Signal Inputs instead of calling the Validation Function in the Template
 - ~~Make ENTER Key work for guessing Champions~~
 - ~~Write Unit Tests for all methods~~
 - ~~Load images faster~~

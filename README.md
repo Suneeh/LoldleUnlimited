@@ -30,14 +30,15 @@ Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deploymen
 
 # TODOs
 
+- Fix and write tests
 - Make the app visually pleasing
 - champion-data.ts is out to date.
   - write importer
   - load dynamically
   - check if bundle size gets small enough by doing this
   - maybe only load the portrait and the name/title first, and load the other data on select?
-- Build a Champion Guess Component with Signal Inputs instead of calling the Validation Function in the Template
 - ~~Make ENTER Key work for guessing Champions~~
 - ~~Write Unit Tests for all methods~~
 - ~~Load images faster~~
 - ~~Check [this](https://angular.dev/guide/defer) to load images on idle or on focus of the input, rather than just loading them eagerly~~
+- ~~Build a Champion Guess Component with Signal Inputs instead of calling the Validation Function in the Template~~

@@ -114,7 +114,7 @@
           }
         ],
         "@angular-eslint/template/i18n": "off",
-        "@angular-eslint/template/no-call-expression": "error",
+        "@angular-eslint/template/no-call-expression": "off",
         "@angular-eslint/template/no-negated-async": "error",
         "@angular-eslint/template/use-track-by-function": "warn",
         "@angular-eslint/use-lifecycle-interface": "error",

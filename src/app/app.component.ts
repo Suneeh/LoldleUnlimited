@@ -1,14 +1,15 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { AsyncPipe, NgClass, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgFor, AsyncPipe, NgIf, NgClass, NgOptimizedImage } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { RouterOutlet } from '@angular/router';
 import { Observable, map, startWith } from 'rxjs';
 import { Champion, ChampionData } from './champion-data';
-import { RouterOutlet } from '@angular/router';
-import { statTypeEnum } from './statTypeEnum';
+import { ChampionGuessComponent } from './champion-guess/champion-guess.component';
+import { ChampionService } from './champion.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -29,6 +30,7 @@ import { statTypeEnum } from './statTypeEnum';
     NgIf,
     AsyncPipe,
     NgOptimizedImage,
+    ChampionGuessComponent,
   ],
 })
 export class AppComponent {
@@ -37,9 +39,7 @@ export class AppComponent {
   filteredChamps: Observable<Champion[]>;
   allChamps = ChampionData;
   gameWon = false;
-  correctCampion: Champion | null;
-  constructor() {
-    this.correctCampion = this.allChamps[Math.floor(Math.random() * this.allChamps.length)];
+  constructor(private champService: ChampionService) {
     this.filteredChamps = this.championInput.valueChanges.pipe(
       startWith(''),
       map((input) =>
@@ -63,51 +63,11 @@ export class AppComponent {
     if (championGuessed) {
       this.guessedChampList.push(championGuessed);
 
-      if (championGuessed?.name == this.correctCampion?.name) {
+      if (championGuessed.name == this.champService.getCorrectChampion.name) {
         this.gameWon = true;
         this.allChamps = [];
       }
       this.championInput.reset('');
     }
-  }
-
-  getClassDependingOnAmountEqualArrayElements(
-    guessedStats: string | string[],
-    correctStats: string | string[],
-    statType: statTypeEnum
-  ): string {
-    switch (statType) {
-      case statTypeEnum.array:
-        if (Array.isArray(guessedStats) && Array.isArray(correctStats)) {
-          let correctStatAmount = 0;
-          correctStatAmount = guessedStats.filter((stat) => correctStats.includes(stat)).length;
-          if (correctStatAmount === correctStats.length && correctStatAmount === guessedStats.length) {
-            return 'correct';
-          }
-          if (correctStatAmount > 0) {
-            return 'partial';
-          }
-          return 'wrong';
-        }
-        break;
-      case statTypeEnum.string:
-        if (guessedStats === correctStats) {
-          return 'correct';
-        }
-        return 'wrong';
-      case statTypeEnum.number:
-        if (typeof guessedStats === 'string' && typeof correctStats === 'string') {
-          const guessedNumber = this.getYearFromString(guessedStats as string);
-          const correctNumber = this.getYearFromString(correctStats as string);
-          if (guessedNumber === correctNumber) return 'correct';
-          if (guessedNumber > correctNumber) return 'lower';
-          if (guessedNumber < correctNumber) return 'higher';
-        }
-    }
-    return 'wrong';
-  }
-
-  getYearFromString(date: string): number {
-    return new Date(date).getFullYear();
   }
 }

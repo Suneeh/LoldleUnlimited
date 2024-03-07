@@ -1,0 +1,43 @@
+.champion-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 1em;
+  align-items: center;
+}
+.stat-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  width: 75px;
+  border: 1px solid black;
+  span {
+    text-align: center;
+  }
+}
+.higher,
+.lower {
+  background-color: orange;
+}
+.lower > .arrow {
+  position: absolute;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 30px solid rgba(255, 0, 0, 0.4);
+}
+.higher > .arrow {
+  position: absolute;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 30px solid rgba(255, 0, 0, 0.4);
+}
+.partial {
+  background-color: orange;
+}
+.correct {
+  background-color: greenyellow;
+}
+.wrong {
+  background-color: red;
+}

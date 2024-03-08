@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterOutlet } from '@angular/router';
@@ -23,6 +24,7 @@ import { ChampionService } from './champion.service';
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatDividerModule,
     ReactiveFormsModule,
     MatCardModule,
     NgFor,
@@ -61,7 +63,7 @@ export class AppComponent {
   guess(value: string) {
     const championGuessed = this.allChamps.find((champ) => champ.name === value);
     if (championGuessed) {
-      this.guessedChampList.push(championGuessed);
+      this.guessedChampList.unshift(championGuessed);
 
       if (championGuessed.name == this.champService.getCorrectChampion.name) {
         this.gameWon = true;

@@ -1,7 +1,7 @@
 .champion-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 1em;
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 .stat-item {
@@ -13,18 +13,24 @@
   width: 75px;
   border: 1px solid black;
   span {
+    color: white;
     text-align: center;
+    z-index: 1;
+    text-shadow: 0px 0px 5px black;
   }
 }
-.higher,
+
 .lower {
-  background-color: orange;
+  background-image: linear-gradient(to bottom right, #ec4d00, #ca8300);
 }
 .lower > .arrow {
   position: absolute;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-top: 30px solid rgba(255, 0, 0, 0.4);
+  border-bottom: 30px solid rgba(70, 20, 5, 0.35);
+}
+.higher {
+  background-image: linear-gradient(to top left, #ec4d00, #ca8300);
 }
 .higher > .arrow {
   position: absolute;
@@ -33,11 +39,11 @@
   border-bottom: 30px solid rgba(255, 0, 0, 0.4);
 }
 .partial {
-  background-color: orange;
+  background-image: linear-gradient(to bottom right, #ec4d00, #ca8300);
 }
 .correct {
-  background-color: greenyellow;
+  background-image: linear-gradient(to bottom right, #39f600, #009714);
 }
 .wrong {
-  background-color: red;
+  background-image: linear-gradient(to bottom right, #ff2727, #b60000);
 }

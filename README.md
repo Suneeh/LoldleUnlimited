@@ -26,11 +26,11 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Deployment
 
-Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deployment.sh`. Also be sure to adjust this to your needs as shown in the [example](https://github.com/Suneeh/LoldleUnlimited/blob/main/deployment.example.sh).
+Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deployment.sh`. Also be sure to adjust this to your needs as shown in the [example](https://github.com/Suneeh/LoldleUnlimited/blob/main/deploy.example.sh).
 
 # TODOs
 
-- Make the app visually pleasing
+- ~~Make the app visually pleasing~~
 - ~~Make ENTER Key work for guessing Champions~~
 - ~~Write Unit Tests for all methods~~
 - ~~Load images faster~~

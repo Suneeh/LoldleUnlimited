@@ -27,7 +27,7 @@
   position: absolute;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-bottom: 30px solid rgba(70, 20, 5, 0.35);
+  border-top: 30px solid rgba(70, 20, 5, 0.35);
 }
 .higher {
   background-image: linear-gradient(to top left, #ec4d00, #ca8300);
@@ -36,7 +36,7 @@
   position: absolute;
   border-left: 30px solid transparent;
   border-right: 30px solid transparent;
-  border-bottom: 30px solid rgba(255, 0, 0, 0.4);
+  border-bottom: 30px solid rgba(70, 20, 5, 0.35);
 }
 .partial {
   background-image: linear-gradient(to bottom right, #ec4d00, #ca8300);

@@ -5,10 +5,11 @@ import { NgClass } from '@angular/common';
 import { ChampionService } from '../champion.service';
 
 interface Classes {
+  gender: string;
   releaseDate: string;
   rangeType: string;
   resource: string;
-  lanes: string;
+  positions: string;
   regions: string;
   species: string;
 }
@@ -29,12 +30,13 @@ export class ChampionGuessComponent implements OnInit {
   ngOnInit(): void {
     const correctCampion = this.champService.getCorrectChampion();
     this.classes = {
-      lanes: this.getClassFromComparison(this.champ().lanes, correctCampion.lanes, statTypeEnum.array),
+      gender: this.getClassFromComparison(this.champ().gender, correctCampion.gender, statTypeEnum.string),
+      positions: this.getClassFromComparison(this.champ().positions, correctCampion.positions, statTypeEnum.array),
       regions: this.getClassFromComparison(this.champ().regions, correctCampion.regions, statTypeEnum.array),
       species: this.getClassFromComparison(this.champ().species, correctCampion.species, statTypeEnum.array),
       releaseDate: this.getClassFromComparison(this.champ().releaseDate, correctCampion.releaseDate, statTypeEnum.number),
       resource: this.getClassFromComparison(this.champ().resource, correctCampion.resource, statTypeEnum.string),
-      rangeType: this.getClassFromComparison(this.champ().rangeTypes, correctCampion.rangeTypes, statTypeEnum.string),
+      rangeType: this.getClassFromComparison(this.champ().rangeTypes, correctCampion.rangeTypes, statTypeEnum.array),
     };
   }
 

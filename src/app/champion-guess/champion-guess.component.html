@@ -1,24 +1,27 @@
 <div class="champion-stats">
   <div class="stat-item">
-    <img [src]="'https://ddragon.leagueoflegends.com/cdn/14.13.1/img/champion/' + champ().name + '.png'" height="75" />
+    <img [src]="'https://ddragon.leagueoflegends.com/cdn/14.16.1/img/champion/' + champ().id + '.png'" height="75" />
   </div>
   <div class="stat-item" [ngClass]="classes?.releaseDate">
     <div class="arrow"></div>
     <span>{{ getYearFromString(champ().releaseDate) }}</span>
   </div>
+  <div class="stat-item" [ngClass]="classes?.gender">
+    <span>{{ champ().gender }}</span>
+  </div>
   <div class="stat-item" [ngClass]="classes?.rangeType">
-    <span>{{ champ().rangeTypes }}</span>
+    <span>{{ champ().rangeTypes.join(' ') }}</span>
   </div>
   <div class="stat-item" [ngClass]="classes?.resource">
     <span>{{ champ().resource }}</span>
   </div>
-  <div class="stat-item" [ngClass]="classes?.lanes">
-    <span>{{ champ().lanes.join(' ') }}</span>
+  <div class="stat-item" [ngClass]="classes?.positions">
+    <span>{{ champ().positions.join(' ') }}</span>
   </div>
   <div class="stat-item" [ngClass]="classes?.regions">
-    <span>{{ champ().regions }}</span>
+    <span>{{ champ().regions.join(' ') }}</span>
   </div>
   <div class="stat-item" [ngClass]="classes?.species">
-    <span>{{ champ().species }}</span>
+    <span>{{ champ().species.join(' ') }}</span>
   </div>
 </div>

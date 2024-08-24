@@ -8,9 +8,8 @@ interface Classes {
   releaseDate: string;
   rangeType: string;
   resource: string;
-  roles: string;
   lanes: string;
-  region: string;
+  regions: string;
   species: string;
 }
 
@@ -30,13 +29,12 @@ export class ChampionGuessComponent implements OnInit {
   ngOnInit(): void {
     const correctCampion = this.champService.getCorrectChampion();
     this.classes = {
-      releaseDate: this.getClassFromComparison(this.champ().releaseDate, correctCampion.releaseDate, statTypeEnum.number),
-      rangeType: this.getClassFromComparison(this.champ().rangeType, correctCampion.rangeType, statTypeEnum.string),
-      resource: this.getClassFromComparison(this.champ().resource, correctCampion.resource, statTypeEnum.string),
-      roles: this.getClassFromComparison(this.champ().roles, correctCampion.roles, statTypeEnum.array),
       lanes: this.getClassFromComparison(this.champ().lanes, correctCampion.lanes, statTypeEnum.array),
-      region: this.getClassFromComparison(this.champ().region, correctCampion.region, statTypeEnum.array),
+      regions: this.getClassFromComparison(this.champ().regions, correctCampion.regions, statTypeEnum.array),
       species: this.getClassFromComparison(this.champ().species, correctCampion.species, statTypeEnum.array),
+      releaseDate: this.getClassFromComparison(this.champ().releaseDate, correctCampion.releaseDate, statTypeEnum.number),
+      resource: this.getClassFromComparison(this.champ().resource, correctCampion.resource, statTypeEnum.string),
+      rangeType: this.getClassFromComparison(this.champ().rangeTypes, correctCampion.rangeTypes, statTypeEnum.string),
     };
   }
 

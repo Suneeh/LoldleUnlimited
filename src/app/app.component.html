@@ -13,12 +13,12 @@
           <mat-option [value]="champ.name">
             <div class="option">
               @defer (prefetch on idle) {
-              <img [src]="champ.portrait" height="25" width="25" />
+              <img [src]="'https://ddragon.leagueoflegends.com/cdn/14.13.1/img/champion/' + champ.name + '.png'" height="25" width="25" />
               } @placeholder(minimum 1s) {
               <div class="placeholder"></div>
               }
               <span>{{ champ.name }}</span>
-              <small> {{ champ.title }}</small>
+              <!--small> {{ champ.title }}</small-->
             </div>
           </mat-option>
           }
@@ -44,9 +44,6 @@
         </div>
         <div class="stat-item default">
           <span>Resource</span>
-        </div>
-        <div class="stat-item default">
-          <span>Role</span>
         </div>
         <div class="stat-item default">
           <span>Lane</span>

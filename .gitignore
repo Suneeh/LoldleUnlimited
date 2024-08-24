@@ -4,7 +4,7 @@
 deploy.sh
 
 # Just Don't want to deploy
-# calc.js
+calc.js
 
 # Compiled output
 /dist

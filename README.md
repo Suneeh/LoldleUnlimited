@@ -1,8 +1,4 @@
-# Loldle (Discontinued)
-
-```
-Sadly the API I used was discontinued - and therefore I will stop maintaining this project for now.
-```
+# Loldle
 
 This repository is basically a clone of the super popular [loldle](https://loldle.net) classic mode written in Angular. The only 'twist' is that it refreshes the champion you have to guess every time you reload the page.
 
@@ -36,3 +32,4 @@ Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deploymen
 - ~~Load images faster~~
 - ~~Check [this](https://angular.dev/guide/defer) to load images on idle or on focus of the input, rather than just loading them eagerly~~
 - ~~Build a Champion Guess Component with Signal Inputs instead of calling the Validation Function in the Template~~
+- Build an API Scraper of the league api to fetch titles and image names correctly and reactivate the title feature

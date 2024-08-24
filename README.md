@@ -32,4 +32,5 @@ Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deploymen
 - ~~Load images faster~~
 - ~~Check [this](https://angular.dev/guide/defer) to load images on idle or on focus of the input, rather than just loading them eagerly~~
 - ~~Build a Champion Guess Component with Signal Inputs instead of calling the Validation Function in the Template~~
-- Build an API Scraper of the league api to fetch titles and image names correctly and reactivate the title feature
+- ~~Build an API Scraper of the league api to fetch titles and image names correctly and reactivate the title feature~~
+- Show some "You Won" Dialogue that let's you restart the game (idealy without reloading the page)

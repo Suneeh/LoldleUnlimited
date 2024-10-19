@@ -1,3 +1,4 @@
+// LAST PATCHED ON 19th Oct 2024
 export interface Champion {
   id: string;
   title: string;
@@ -293,7 +294,7 @@ export const ChampionData = [
     title: 'the Daring Bombardier',
     gender: 'Male',
     name: 'Corki',
-    positions: ['Middle', 'Bottom'],
+    positions: ['Middle'],
     regions: ['Bandle City', 'Piltover'],
     species: ['Yordle'],
     releaseDate: '2009-09-19',
@@ -953,7 +954,7 @@ export const ChampionData = [
     title: 'the Twisted Treant',
     gender: 'Male',
     name: 'Maokai',
-    positions: ['Support'],
+    positions: ['Jungle', 'Support'],
     regions: ['Shadow Isles'],
     species: ['Spirit'],
     releaseDate: '2011-02-16',
@@ -1229,7 +1230,7 @@ export const ChampionData = [
     title: "Demacia's Wings",
     gender: 'Female',
     name: 'Quinn',
-    positions: ['Top'],
+    positions: ['Top', 'Middle'],
     regions: ['Demacia'],
     species: ['Human'],
     releaseDate: '2013-03-01',

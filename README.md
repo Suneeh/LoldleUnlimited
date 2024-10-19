@@ -28,6 +28,10 @@ Run `npm run deploy` after you renamed the `deployment.exmaple.sh` to `deploymen
 
 - Check for an API with Quotes, Skins, Sounds, Spellnames, Spell Icons and add them to championData
 - Add the new info to build hints after 5-10-15 guesses.
+- Make it mobile friendly
+  - title below the image and name
+  - Guessed Champions must be rearranged
+- Add a Legend to the bottom that explains coloring and arrows
 - ~~Show some "You Won" Dialogue that let's you restart the game (idealy without reloading the page)~~
 - ~~Build an API Scraper of the league api to fetch titles and image names correctly and reactivate the title feature~~
 - ~~Make the app visually pleasing~~

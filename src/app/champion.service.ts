@@ -11,6 +11,11 @@ export class ChampionService {
   constructor() {
     this.correctCampion = this.allChamps[Math.floor(Math.random() * this.allChamps.length)];
   }
+
+  resetCorrectChampion() {
+    this.correctCampion = this.allChamps[Math.floor(Math.random() * this.allChamps.length)];
+  }
+
   getAllChamps(): Champion[] {
     return this.allChamps;
   }

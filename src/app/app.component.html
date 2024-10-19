@@ -9,7 +9,7 @@
         <mat-label>Champion</mat-label>
         <input matInput class="input" [matAutocomplete]="auto" [formControl]="championInput" />
         <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="guess($event.option.value)">
-          @for (champ of (filteredChamps | async); track champ.name){
+          @for (champ of ($selectChamps()); track champ.name){
           <mat-option [value]="champ.name">
             <div class="option">
               @defer (prefetch on idle) {
@@ -27,7 +27,7 @@
     </mat-card-content>
   </mat-card>
   @if(guessedChampList.length){
-  <mat-card class="guesses-card" [class.correct]="gameWon">
+  <mat-card class="guesses-card">
     <mat-card-header class="card-header">
       <mat-card-title>Guesses:</mat-card-title>
     </mat-card-header>

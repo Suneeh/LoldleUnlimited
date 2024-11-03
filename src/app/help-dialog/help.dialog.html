@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>How to play?</h1>
+<mat-dialog-content>
+  <p
+    >Guess the champion from Riot's Game "League of Legends"! After you guessed a Champion you will get information about the release year,
+    gender, range type, the champions used resource type, their main position(s), the region they come from as well as the species they
+    belong to.</p
+  >
+  <p><span class="green">Green</span> indicates an exact match.</p>
+  <p><span class="orange">Orange</span> indicates partial match.</p>
+  <p><span class="red">Red</span> indicates no match at all.</p>
+  <p><mat-icon>north</mat-icon><mat-icon>south</mat-icon> indicates if the answer is above or below your guess.</p>
+  <mat-divider></mat-divider>
+  <h2>Properties</h2>
+  <p>These are the details for each piece of information you will get:</p>
+  <h3>Release year</h3>
+  <p>When the champion was released to the live servers.</p>
+  <p><b>Possible values:</b> Any year between 2009 and {{date}}.</p>
+  <mat-divider></mat-divider>
+  <h3>Gender</h3>
+  <p><b>Possible values:</b> Male, Female and Other.</p>
+  <mat-divider></mat-divider>
+  <h3>Range type</h3>
+  <p>How the champion hits other champions in game (Auto Attack). Some champions might have multiple true values.</p>
+  <p><b>Possible values:</b> Meele and Ranged</p>
+  <mat-divider></mat-divider>
+  <h3>Resource</h3>
+  <p>The type of resource the champion uses to cast spells in the game.</p>
+  <p><b>Possible values:</b> Mana, Energy, Manaless, ...</p>
+  <mat-divider></mat-divider>
+  <h3>Position</h3>
+  <p>The most played position(s) for the champion in the game. Some champions might have multiple true values.</p>
+  <p><b>Possible values:</b> Mana, Energy, Manaless, ...</p>
+  <mat-divider></mat-divider>
+  <h3>Region</h3>
+  <p>Where the champion comes from or resides according to lore. Some champions might have multiple true values.</p>
+  <p><b>Possible values:</b> Ionia, Shadow Isles, Targon, ...</p>
+  <mat-divider></mat-divider>
+  <h3>Species</h3>
+  <p>The race of the champion. Some champions might have multiple true values.</p>
+  <p><b>Possible values:</b> Human, Vastayan, Yordle, ...</p>
+  <mat-divider></mat-divider>
+  <h2>Example</h2>
+  <p>Let's have an Example. Let's pretend the 1st guess was Zed.</p>
+  <app-champion-guess [champ]="champService.getChampionByName('Zed')" [isDemo]="true" />
+  <p>They year is too high, we need to get lower.</p>
+  <app-champion-guess [champ]="champService.getChampionByName('Alistar')" [isDemo]="true" />
+  <p
+    >Now the year is too low. So it needs to be in between either 2010 or 2011. But the resource 'Mana' is correct. And Support seems to be
+    somewhat close as well. Let's go with a female Supporter next.</p
+  >
+  <app-champion-guess [champ]="champService.getChampionByName('Leona')" [isDemo]="true" />
+  <p
+    >Okay, not it's clear. It is a 2010, Female, Mana user. She is played as a flex pick on Support and it seems like she is a human. I
+    think I know it now.</p
+  >
+  <app-champion-guess [champ]="champService.getChampionByName('Lux')" [isDemo]="true" />
+  <p>It was Lux the whole time! Got it? Try it out on your own now. Have fun!</p>
+</mat-dialog-content>

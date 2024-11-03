@@ -24,19 +24,49 @@ interface Classes {
 })
 export class ChampionGuessComponent implements OnInit {
   public champ = input.required<Champion>();
+  public isDemo = input<boolean>(false);
   public classes: Classes | undefined;
 
   constructor(private champService: ChampionService) {}
   ngOnInit(): void {
     const correctCampion = this.champService.getCorrectChampion();
+    const demoChampion = this.champService.getChampionByName('Lux');
     this.classes = {
-      gender: this.getClassFromComparison(this.champ().gender, correctCampion.gender, statTypeEnum.string),
-      positions: this.getClassFromComparison(this.champ().positions, correctCampion.positions, statTypeEnum.array),
-      regions: this.getClassFromComparison(this.champ().regions, correctCampion.regions, statTypeEnum.array),
-      species: this.getClassFromComparison(this.champ().species, correctCampion.species, statTypeEnum.array),
-      releaseDate: this.getClassFromComparison(this.champ().releaseDate, correctCampion.releaseDate, statTypeEnum.number),
-      resource: this.getClassFromComparison(this.champ().resource, correctCampion.resource, statTypeEnum.string),
-      rangeType: this.getClassFromComparison(this.champ().rangeTypes, correctCampion.rangeTypes, statTypeEnum.array),
+      gender: this.getClassFromComparison(
+        this.champ().gender,
+        this.isDemo() ? demoChampion.gender : correctCampion.gender,
+        statTypeEnum.string
+      ),
+      positions: this.getClassFromComparison(
+        this.champ().positions,
+        this.isDemo() ? demoChampion.positions : correctCampion.positions,
+        statTypeEnum.array
+      ),
+      regions: this.getClassFromComparison(
+        this.champ().regions,
+        this.isDemo() ? demoChampion.regions : correctCampion.regions,
+        statTypeEnum.array
+      ),
+      species: this.getClassFromComparison(
+        this.champ().species,
+        this.isDemo() ? demoChampion.species : correctCampion.species,
+        statTypeEnum.array
+      ),
+      releaseDate: this.getClassFromComparison(
+        this.champ().releaseDate,
+        this.isDemo() ? demoChampion.releaseDate : correctCampion.releaseDate,
+        statTypeEnum.number
+      ),
+      resource: this.getClassFromComparison(
+        this.champ().resource,
+        this.isDemo() ? demoChampion.resource : correctCampion.resource,
+        statTypeEnum.string
+      ),
+      rangeType: this.getClassFromComparison(
+        this.champ().rangeTypes,
+        this.isDemo() ? demoChampion.rangeTypes : correctCampion.rangeTypes,
+        statTypeEnum.array
+      ),
     };
   }
 

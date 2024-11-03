@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass, NgFor, NgIf, NgOptimizedImage } from '@angular/common';
+import { AsyncPipe, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +14,8 @@ import { Champion, ChampionData } from './champion-data';
 import { ChampionGuessComponent } from './champion-guess/champion-guess.component';
 import { ChampionService } from './champion.service';
 import { GameWonDialog } from './game-won-dialog/game-won.dialog';
+import { MatIconModule } from '@angular/material/icon';
+import { HelpDialog } from './help-dialog/help.dialog';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,12 +32,10 @@ import { GameWonDialog } from './game-won-dialog/game-won.dialog';
     MatDividerModule,
     ReactiveFormsModule,
     MatCardModule,
-    NgFor,
-    NgClass,
-    NgIf,
     AsyncPipe,
     NgOptimizedImage,
     ChampionGuessComponent,
+    MatIconModule,
   ],
 })
 export class AppComponent {
@@ -89,5 +89,9 @@ export class AppComponent {
     this.gameWon = false;
     this.championInput.setValue('');
     this.champService.resetCorrectChampion();
+  }
+
+  openHelpDialog() {
+    this.dialog.open(HelpDialog);
   }
 }

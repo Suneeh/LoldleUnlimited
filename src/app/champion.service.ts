@@ -23,4 +23,8 @@ export class ChampionService {
   getCorrectChampion(): Champion {
     return this.correctCampion;
   }
+
+  getChampionByName(name: string): Champion {
+    return this.allChamps.find((c) => c.name == name) || this.correctCampion;
+  }
 }

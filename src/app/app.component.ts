@@ -9,7 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterOutlet } from '@angular/router';
-import { map, startWith } from 'rxjs';
+import { map, Observable, startWith } from 'rxjs';
 import { Champion, ChampionData } from './champion-data';
 import { ChampionGuessComponent } from './champion-guess/champion-guess.component';
 import { ChampionService } from './champion.service';
@@ -45,6 +45,12 @@ export class AppComponent {
   championInput = new FormControl('');
   allChamps = ChampionData;
   gameWon = false;
+  clue: Clue = {
+    show: false,
+    passiveImageUrl: null,
+    passiveName: null,
+    splashArtUrl: null,
+  };
   $selectChamps = toSignal(
     this.championInput.valueChanges.pipe(
       startWith(''),
@@ -81,6 +87,18 @@ export class AppComponent {
         });
       }
       this.championInput.setValue('');
+      if (this.guessedChampList.length == 1) {
+        this.clue.passiveImageUrl = this.champService.getPassiveIconUrl();
+      }
+      if (this.guessedChampList.length == 5) {
+        this.clue.show = true;
+      }
+      if (this.guessedChampList.length == 10) {
+        this.clue.passiveName = this.champService.getPassiveName();
+      }
+      if (this.guessedChampList.length == 15) {
+        this.clue.splashArtUrl = this.champService.getSplashArtUrl();
+      }
     }
   }
 
@@ -89,9 +107,22 @@ export class AppComponent {
     this.gameWon = false;
     this.championInput.setValue('');
     this.champService.resetCorrectChampion();
+    this.clue = {
+      show: false,
+      passiveImageUrl: null,
+      passiveName: null,
+      splashArtUrl: null,
+    };
   }
 
   openHelpDialog() {
     this.dialog.open(HelpDialog);
   }
+}
+
+interface Clue {
+  show: boolean;
+  passiveImageUrl: Observable<string> | null;
+  passiveName: string | null;
+  splashArtUrl: string | null;
 }

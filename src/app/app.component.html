@@ -7,6 +7,32 @@
       </button>
     </mat-card-content>
   </mat-card>
+
+  <mat-card [class.hidden]="!clue.show" class="clue-card">
+    <mat-card-content class="card-content">
+      <div class="clue">
+        <img [src]="clue.passiveImageUrl | async" height="75" width="75" />
+        <span>Passive icon</span>
+      </div>
+      <div class="clue">
+        @if(clue.passiveName){
+        <span>{{ clue.passiveName }}</span>
+        }@else {
+        <mat-icon>help</mat-icon>
+        <span>{{ 10 - guessedChampList.length }} guesses until passive name</span>
+        }
+      </div>
+      <div class="clue">
+        @if(clue.splashArtUrl){
+        <img [src]="clue.splashArtUrl" height="75" width="130" />
+        }@else {
+        <mat-icon>help</mat-icon>
+        <span>{{ 15 - guessedChampList.length }} guesses until splash art</span>
+        }
+      </div>
+    </mat-card-content>
+  </mat-card>
+
   <mat-card>
     <mat-card-header class="card-header">
       <mat-card-title>Guess the champion, start out by typing your favourite champions name.</mat-card-title>

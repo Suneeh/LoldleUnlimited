@@ -74,6 +74,18 @@ export const ChampionData = [
     rangeTypes: ['Melee'],
   },
   {
+    id: 'Ambessa',
+    title: 'Matriarch of War',
+    gender: 'Female',
+    name: 'Ambessa',
+    positions: ['Top', 'Jungle', 'Mid'],
+    regions: ['Noxus', 'Piltover'],
+    species: ['Human'],
+    releaseDate: '2024-11-06',
+    resource: 'Energy',
+    rangeTypes: ['Melee'],
+  },
+  {
     id: 'Amumu',
     title: 'the Sad Mummy',
     gender: 'Male',

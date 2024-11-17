@@ -35,14 +35,14 @@ export class ChampionService {
 
   getPassiveIconUrl(): Observable<string> {
     const result = this.http
-      .get(`https://ddragon.leagueoflegends.com/cdn/14.16.1/data/en_US/champion/${this.correctCampion.id}.json`, {
+      .get(`https://ddragon.leagueoflegends.com/cdn/14.22.1/data/en_US/champion/${this.correctCampion.id}.json`, {
         headers: { Accept: 'application/json' },
       })
       .pipe(
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         map((obj: any) => {
           this.correctChampionJson = obj;
-          return `https://ddragon.leagueoflegends.com/cdn/14.16.1/img/passive/${
+          return `https://ddragon.leagueoflegends.com/cdn/14.22.1/img/passive/${
             obj['data'][this.correctCampion.id]['passive']['image']['full']
           }`;
         })

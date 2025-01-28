@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
+import { MatDialogContent, MatDialogTitle } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { ChampionGuessComponent } from '../champion-guess/champion-guess.component';
@@ -15,8 +15,6 @@ import { ChampionService } from '../champion.service';
         MatButtonModule,
         MatDialogTitle,
         MatDialogContent,
-        MatDialogActions,
-        MatDialogClose,
         MatIconModule,
         MatDividerModule,
         ChampionGuessComponent,

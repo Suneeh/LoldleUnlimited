@@ -11,7 +11,7 @@
   <mat-card [class.hidden]="!clue.show" class="clue-card">
     <mat-card-content class="card-content">
       <div class="clue">
-        <img [ngSrc]="(clue.passiveImageUrl | async)!" height="75" width="75" />
+        <img [ngSrc]="(clue.passiveImageUrl | async) ?? 'empty'" height="75" width="75" />
         <span>Passive icon</span>
       </div>
       <div class="clue">

@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
-  MatDialogClose,
   MatDialogContent,
   MatDialogRef,
   MatDialogTitle,
@@ -24,7 +23,6 @@ import { MatInputModule } from '@angular/material/input';
         MatDialogTitle,
         MatDialogContent,
         MatDialogActions,
-        MatDialogClose,
     ]
 })
 export class GameWonDialog {
@@ -33,6 +31,10 @@ export class GameWonDialog {
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  onYesClick(): void {
+    window.location.reload()
   }
 }
 

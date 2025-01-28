@@ -8,7 +8,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { RouterOutlet } from '@angular/router';
 import { map, Observable, startWith } from 'rxjs';
 import { Champion, ChampionData } from './champion-data';
 import { ChampionGuessComponent } from './champion-guess/champion-guess.component';
@@ -23,7 +22,6 @@ import { HelpDialog } from './help-dialog/help.dialog';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
     imports: [
-        RouterOutlet,
         FormsModule,
         MatFormFieldModule,
         MatInputModule,

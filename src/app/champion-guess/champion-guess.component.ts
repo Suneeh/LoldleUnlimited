@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
 import { Champion } from '../champion-data';
 import { statTypeEnum } from '../statTypeEnum';
-import { NgClass } from '@angular/common';
+import { NgClass, NgOptimizedImage } from '@angular/common';
 import { ChampionService } from '../champion.service';
 
 interface Classes {
@@ -19,7 +19,7 @@ interface Classes {
     selector: 'app-champion-guess',
     templateUrl: './champion-guess.component.html',
     styleUrls: ['./champion-guess.component.scss'],
-    imports: [NgClass]
+    imports: [NgClass, NgOptimizedImage]
 })
 export class ChampionGuessComponent implements OnInit {
   public champ = input.required<Champion>();

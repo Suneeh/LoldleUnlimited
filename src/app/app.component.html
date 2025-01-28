@@ -11,7 +11,7 @@
   <mat-card [class.hidden]="!clue.show" class="clue-card">
     <mat-card-content class="card-content">
       <div class="clue">
-        <img [src]="clue.passiveImageUrl | async" height="75" width="75" />
+        <img [ngSrc]="(clue.passiveImageUrl | async)!" height="75" width="75" />
         <span>Passive icon</span>
       </div>
       <div class="clue">
@@ -24,7 +24,7 @@
       </div>
       <div class="clue">
         @if(clue.splashArtUrl){
-        <img [src]="clue.splashArtUrl" height="75" width="130" />
+        <img [ngSrc]="clue.splashArtUrl" height="75" width="130" />
         }@else {
         <mat-icon>help</mat-icon>
         <span>{{ 15 - guessedChampList.length }} guesses until splash art</span>
@@ -46,7 +46,7 @@
           <mat-option [value]="champ.name">
             <div class="option">
               @defer (prefetch on idle) {
-              <img [src]="'https://ddragon.leagueoflegends.com/cdn/14.22.1/img/champion/' + champ.id + '.png'" height="25" width="25" />
+              <img [ngSrc]="'https://ddragon.leagueoflegends.com/cdn/14.22.1/img/champion/' + champ.id + '.png'" height="25" width="25" />
               } @placeholder(minimum 1s) {
               <div class="placeholder"></div>
               }

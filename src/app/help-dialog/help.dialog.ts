@@ -7,21 +7,20 @@ import { ChampionGuessComponent } from '../champion-guess/champion-guess.compone
 import { ChampionService } from '../champion.service';
 
 @Component({
-  selector: 'app-help-dialog',
-  templateUrl: './help.dialog.html',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: './help.dialog.scss',
-  imports: [
-    MatButtonModule,
-    MatDialogTitle,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose,
-    MatIconModule,
-    MatDividerModule,
-    ChampionGuessComponent,
-  ],
+    selector: 'app-help-dialog',
+    templateUrl: './help.dialog.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    styleUrl: './help.dialog.scss',
+    imports: [
+        MatButtonModule,
+        MatDialogTitle,
+        MatDialogContent,
+        MatDialogActions,
+        MatDialogClose,
+        MatIconModule,
+        MatDividerModule,
+        ChampionGuessComponent,
+    ]
 })
 export class HelpDialog {
   public champService = inject(ChampionService);

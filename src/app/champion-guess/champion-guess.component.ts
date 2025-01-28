@@ -15,12 +15,11 @@ interface Classes {
 }
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-champion-guess',
-  templateUrl: './champion-guess.component.html',
-  styleUrls: ['./champion-guess.component.scss'],
-  standalone: true,
-  imports: [NgClass],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-champion-guess',
+    templateUrl: './champion-guess.component.html',
+    styleUrls: ['./champion-guess.component.scss'],
+    imports: [NgClass]
 })
 export class ChampionGuessComponent implements OnInit {
   public champ = input.required<Champion>();

@@ -18,25 +18,24 @@ import { MatIconModule } from '@angular/material/icon';
 import { HelpDialog } from './help-dialog/help.dialog';
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  standalone: true,
-  imports: [
-    RouterOutlet,
-    FormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatAutocompleteModule,
-    MatDividerModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    AsyncPipe,
-    NgOptimizedImage,
-    ChampionGuessComponent,
-    MatIconModule,
-  ],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    imports: [
+        RouterOutlet,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatAutocompleteModule,
+        MatDividerModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        AsyncPipe,
+        NgOptimizedImage,
+        ChampionGuessComponent,
+        MatIconModule,
+    ]
 })
 export class AppComponent {
   private champService = inject(ChampionService);

@@ -13,20 +13,19 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
-  selector: 'app-game-won-dialog',
-  templateUrl: './game-won.dialog.html',
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    MatFormFieldModule,
-    MatInputModule,
-    FormsModule,
-    MatButtonModule,
-    MatDialogTitle,
-    MatDialogContent,
-    MatDialogActions,
-    MatDialogClose,
-  ],
+    selector: 'app-game-won-dialog',
+    templateUrl: './game-won.dialog.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatButtonModule,
+        MatDialogTitle,
+        MatDialogContent,
+        MatDialogActions,
+        MatDialogClose,
+    ]
 })
 export class GameWonDialog {
   readonly dialogRef = inject(MatDialogRef<GameWonDialog>);

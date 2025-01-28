@@ -4,4 +4,4 @@
 # 2. Potentially clean your httpdocs folder before uploading the new files
 # 3. Upload the files to the server
 sftp REMOTE_USERNAME@SERVER_IP <<EOF
-put ./dist/loldle/* /YOUR_PATH
+put ./dist/loldle/browser/* /YOUR_PATH

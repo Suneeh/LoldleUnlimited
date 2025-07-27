@@ -2048,7 +2048,7 @@ export const ChampionData = [
     name: 'Zyra',
     positions: ['Support'],
     regions: ['Ixtal'],
-    species: ['Unknown'],
+    species: ['Human', 'Plant'],
     releaseDate: '2012-07-24',
     resource: 'Mana',
     rangeTypes: ['Ranged'],
